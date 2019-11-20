@@ -1,15 +1,17 @@
 import React from 'react';
-import TextField from './TextField';
+import List from './List';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Detail from './Detail';
 
-//propos
-//hooks
-// renders props
-
-
-const App: React.FC = () =>{
+const App: React.FC = () => {
   return <div>
-    <div>Teste React com Typescript</div>
-    <TextField text='Teste' person={{firstName: '', lastName: ''}} />
+    <Router>
+      <div>Teste React com Typescript</div>
+      <Switch>
+        <Route exact path="/" component={List}></Route>
+        <Route path="/:name" component={Detail}></Route>
+      </Switch>
+    </Router>
   </div>
 }
 
